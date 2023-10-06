@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Garage_App</string>
+    <string name="unselected">Please select an option above first</string>
 </resources>
