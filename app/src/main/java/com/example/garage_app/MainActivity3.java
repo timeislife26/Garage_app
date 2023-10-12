@@ -2,9 +2,13 @@ package com.example.garage_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
 
@@ -19,6 +23,8 @@ public class MainActivity3 extends AppCompatActivity {
         ImageView vehicleImage = findViewById(R.id.vehicleImage);
         TextView vehiclePrice = findViewById(R.id.vehiclePrice);
         TextView vehicleDescription = findViewById(R.id.vehicleDescription);
+        FloatingActionButton homeBtn = findViewById(R.id.homeFAB);
+
 
 
         //extra Types
@@ -26,6 +32,15 @@ public class MainActivity3 extends AppCompatActivity {
         int vehiclePic = 0;
         int vehicleType = 0;
         String[] vehicleList;
+
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(MainActivity3.this, MainActivity.class);
+                startActivity(home);
+            }
+        });
 
         if (extras != null) {
             vehiclePic = extras.getInt("vehiclePic");

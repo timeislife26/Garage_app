@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity3">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/homeFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/baseline_home_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.905" />
+
     <TextView
         android:id="@+id/vehicleName"
         android:layout_width="wrap_content"

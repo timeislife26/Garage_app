@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -19,6 +21,16 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        FloatingActionButton homeBtn = findViewById(R.id.homeFAB);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent home = new Intent(MainActivity2.this, MainActivity.class);
+                startActivity(home);
+            }
+        });
+
         Bundle extras = getIntent().getExtras();
         int vehicleType = 0;
         if (extras != null)
