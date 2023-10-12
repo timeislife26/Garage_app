@@ -10,18 +10,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private List<String> mData;
+    private int vehicleType;
     private List<Integer> mPicture;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    public MyRecyclerViewAdapter(Context context, List<String> data, List<Integer> mPic) {
+    public MyRecyclerViewAdapter(Context context, int vehicleType, List<String> data, List<Integer> mPic) {
         this.mInflater = LayoutInflater.from(context);
+        this.vehicleType = vehicleType;
         this.mData = data;
         this.mPicture = mPic;
     }
@@ -37,9 +40,9 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     @Override
     public void onBindViewHolder(@NonNull MyRecyclerViewAdapter.ViewHolder holder, int position) {
-        String breed = mData.get(position);
+        String vehicle = mData.get(position);
         holder.myImageView.setImageResource(mPicture.get(position));
-        holder.myTextView.setText(breed);
+        holder.myTextView.setText(vehicle);
     }
 
 
@@ -74,6 +77,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     String getItem(int id){
         return mData.get(id);
     }
+    int getPicture(int id) {return mPicture.get(id);}
+    int getVehicleType() {return vehicleType;}
 
     public interface ItemClickListener {
         void onItemClick(View view, int position);
