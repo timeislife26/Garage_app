@@ -138,8 +138,8 @@ public class MainActivity3 extends AppCompatActivity {
 
 
     private void composeEmail(String subject) {
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent.setType("text/plain");
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+        emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"Garage@Garage.com"});
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 
