@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -26,6 +27,8 @@ public class MainActivity3 extends AppCompatActivity {
         TextView vehicleDescription = findViewById(R.id.vehicleDescription);
         FloatingActionButton homeFAB = findViewById(R.id.homeFAB);
         FloatingActionButton emailFAB = findViewById(R.id.emailFAB);
+        FloatingActionButton phoneFAB = findViewById(R.id.phoneFAB);
+        FloatingActionButton mapFAB = findViewById(R.id.mapFAB);
 
 
 
@@ -44,6 +47,8 @@ public class MainActivity3 extends AppCompatActivity {
                 startActivity(home);
             }
         });
+
+
 
 
 
@@ -94,7 +99,40 @@ public class MainActivity3 extends AppCompatActivity {
                     composeEmail("Quote:" + finalQuote);
                 }
             });
+            phoneFAB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    action_dial(view);
+                }
+            });
+            mapFAB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    open_map(view);
+                }
+            });
 
+        }
+    }
+
+    public void action_dial(View view){
+        Intent intent1 = new Intent(Intent.ACTION_DIAL);
+        intent1.setData(Uri.parse("tel:+353123456789"));
+        try {
+            startActivity(intent1);
+        } catch (ActivityNotFoundException e) {
+            // Define what your app should do if no activity can handle the intent.
+        }
+    }
+
+    public void open_map(View view){
+        Uri location = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, location);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        try {
+            startActivity(mapIntent);
+        } catch (ActivityNotFoundException e) {
+            // Define what your app should do if no activity can handle the intent.
         }
     }
 
