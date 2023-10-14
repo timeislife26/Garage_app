@@ -23,6 +23,13 @@
         <item>Description of car 4</item>
         <item>Description of car 5</item>
     </string-array>
+    <string-array name="carQuote">
+        <item>Car1Q</item>
+        <item>Car2Q</item>
+        <item>Car3Q</item>
+        <item>Car4Q</item>
+        <item>Car5Q</item>
+    </string-array>
 
     <string-array name="bikes">
         <item>bike 1</item>
@@ -45,6 +52,14 @@
         <item>Description of bike 4</item>
         <item>Description of bike 5</item>
     </string-array>
+    <string-array name="bikeQuote">
+        <item>Bike1Q</item>
+        <item>Bike2Q</item>
+        <item>Bike3Q</item>
+        <item>Bike4Q</item>
+        <item>Bike5Q</item>
+    </string-array>
+
 
     <string-array name="other">
         <item>other 1</item>
@@ -67,5 +82,13 @@
         <item>Description of other 4</item>
         <item>Description of other 5</item>
     </string-array>
+    <string-array name="otherQuote">
+        <item>Other1Q</item>
+        <item>Other2Q</item>
+        <item>Other3Q</item>
+        <item>Other4Q</item>
+        <item>Other5Q</item>
+    </string-array>
+
 
 </resources>
