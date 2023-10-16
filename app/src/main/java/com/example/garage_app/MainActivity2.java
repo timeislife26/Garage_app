@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +34,7 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
 
         Bundle extras = getIntent().getExtras();
         int vehicleType = 0;
+        Resources res = getResources();
         if (extras != null)
             vehicleType = extras.getInt("vehicle");
         ArrayList<String> vehicleNames = new ArrayList<>();
@@ -47,12 +49,18 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
             vehicleNames.add("Car 3");
             vehicleNames.add("Car 4");
             vehicleNames.add("Car 5");
-            */
+
             vehiclePic.add(R.drawable.car1);
             vehiclePic.add(R.drawable.car2);
             vehiclePic.add(R.drawable.car3);
             vehiclePic.add(R.drawable.car4);
             vehiclePic.add(R.drawable.car5);
+             */
+            for (int i = 0; i < vehicleNames.size();i++){
+                String imageName = getResources().getStringArray(R.array.carImages)[i];
+                int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
+                vehiclePic.add(resourceId);
+            }
 
         }
         else if (vehicleType == 2){

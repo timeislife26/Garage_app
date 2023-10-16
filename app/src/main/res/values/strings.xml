@@ -30,6 +30,13 @@
         <item>Car4Q</item>
         <item>Car5Q</item>
     </string-array>
+    <string-array name="carImages">
+        <item>car1</item>
+        <item>car2</item>
+        <item>car3</item>
+        <item>car4</item>
+        <item>car5</item>
+    </string-array>
 
     <string-array name="bikes">
         <item>bike 1</item>
