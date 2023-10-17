@@ -10,6 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -41,7 +44,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull MyRecyclerViewAdapter.ViewHolder holder, int position) {
         String vehicle = mData.get(position);
-        holder.myImageView.setImageResource(mPicture.get(position));
+        //holder.myImageView.setImageResource(mPicture.get(position));
+        Glide.with(mInflater.getContext())
+                .load(mPicture.get(position))
+                .fitCenter()
+                .apply(new RequestOptions().override(600, 200))
+                .into(holder.myImageView);
+
         holder.myTextView.setText(vehicle);
     }
 

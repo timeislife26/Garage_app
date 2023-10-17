@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Arrays;
@@ -54,7 +56,15 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (extras != null) {
             vehiclePic = extras.getInt("vehiclePic");
-            vehicleImage.setImageResource(extras.getInt("vehiclePic"));
+            //vehicleImage.setImageResource(extras.getInt("vehiclePic"));
+            Glide.with(this)
+                    .load(vehiclePic)
+                    .fitCenter()
+                    .apply(new RequestOptions().override(1500, 800))
+                    .into(vehicleImage);
+
+
+
             //vehicleName = extras.getString("position");
             int position = (int)extras.get("position");
             vehicleType = extras.getInt("vehicleType");
