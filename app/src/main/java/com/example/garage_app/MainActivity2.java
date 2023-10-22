@@ -39,11 +39,15 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         if (extras != null)
             vehicleType = extras.getInt("vehicle");
         ArrayList<String> vehicleNames = new ArrayList<>();
+        ArrayList<String> vehiclePrices = new ArrayList<>();
         ArrayList<Integer> vehiclePic = new ArrayList<>();
         String[] vehicleList;
+        String[] vehiclePrice;
         if (vehicleType == 1) {
             vehicleList = getResources().getStringArray(R.array.cars);
             vehicleNames.addAll(Arrays.asList(vehicleList));
+            vehiclePrice = getResources().getStringArray(R.array.carPrice);
+            vehiclePrices.addAll(Arrays.asList(vehiclePrice));
 
             for (int i = 0; i < vehicleNames.size();i++){
                 String imageName = getResources().getStringArray(R.array.carImages)[i];
@@ -55,6 +59,8 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         else if (vehicleType == 2){
             vehicleList = getResources().getStringArray(R.array.bikes);
             vehicleNames.addAll(Arrays.asList(vehicleList));
+            vehiclePrice = getResources().getStringArray(R.array.bikePrice);
+            vehiclePrices.addAll(Arrays.asList(vehiclePrice));
             for (int i = 0; i < vehicleNames.size();i++){
                 String imageName = getResources().getStringArray(R.array.bikeImages)[i];
                 int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
@@ -64,6 +70,8 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         else {
             vehicleList = getResources().getStringArray(R.array.other);
             vehicleNames.addAll(Arrays.asList(vehicleList));
+            vehiclePrice = getResources().getStringArray(R.array.otherPrice);
+            vehiclePrices.addAll(Arrays.asList(vehiclePrice));
             for (int i = 0; i < vehicleNames.size();i++){
                 String imageName = getResources().getStringArray(R.array.otherImages)[i];
                 int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
@@ -72,7 +80,7 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         }
         RecyclerView recyclerView = findViewById(R.id.rcView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        myRecyclerViewAdapter = new MyRecyclerViewAdapter(this, vehicleType, vehicleNames, vehiclePic);
+        myRecyclerViewAdapter = new MyRecyclerViewAdapter(this, vehicleType, vehicleNames, vehiclePic, vehiclePrices);
         myRecyclerViewAdapter.setClickListener(this);
         recyclerView.setAdapter(myRecyclerViewAdapter);
 

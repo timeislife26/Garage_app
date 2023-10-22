@@ -3,18 +3,18 @@
     <string name="unselected">Please select an option above first</string>
     <string name="errorCase">Error</string>
     <string-array name="cars">
-        <item>car test 1</item>
+        <item>Volvo V40, 2015 R-Design</item>
         <item>car 2</item>
         <item>car 3</item>
         <item>car 4</item>
         <item>car 5</item>
     </string-array>
     <string-array name="carPrice">
-        <item>1000</item>
-        <item>2000</item>
-        <item>3000</item>
-        <item>4000</item>
-        <item>5000</item>
+        <item>€1000</item>
+        <item>€2000</item>
+        <item>€3000</item>
+        <item>€4000</item>
+        <item>€5000</item>
     </string-array>
     <string-array name="carDescription">
         <item>Description of car 1</item>
@@ -25,6 +25,13 @@
     </string-array>
     <string-array name="carQuote">
         <item>Car1Q</item>
+        <item>Car2Q</item>
+        <item>Car3Q</item>
+        <item>Car4Q</item>
+        <item>Car5Q</item>
+    </string-array>
+    <string-array name="carLink">
+        <item>https://www.donedeal.ie/cars-for-sale/volvo-v40-2015-r-design/31939167?campaign=3</item>
         <item>Car2Q</item>
         <item>Car3Q</item>
         <item>Car4Q</item>
@@ -46,11 +53,11 @@
         <item>bike 5</item>
     </string-array>
     <string-array name="bikePrice">
-        <item>1500</item>
-        <item>2500</item>
-        <item>3500</item>
-        <item>4500</item>
-        <item>5500</item>
+        <item>€1500</item>
+        <item>€2500</item>
+        <item>€3500</item>
+        <item>€4500</item>
+        <item>€5500</item>
     </string-array>
     <string-array name="bikeDescription">
         <item>Description of bike 1</item>
@@ -83,11 +90,11 @@
         <item>other 5</item>
     </string-array>
     <string-array name="otherPrice">
-        <item>1250</item>
-        <item>2250</item>
-        <item>3250</item>
-        <item>4250</item>
-        <item>5250</item>
+        <item>€1250</item>
+        <item>€2250</item>
+        <item>€3250</item>
+        <item>€4250</item>
+        <item>€5250</item>
     </string-array>
     <string-array name="otherDescription">
         <item>Description of other 1</item>
@@ -110,6 +117,4 @@
         <item>other4</item>
         <item>other5</item>
     </string-array>
-
-
 </resources>

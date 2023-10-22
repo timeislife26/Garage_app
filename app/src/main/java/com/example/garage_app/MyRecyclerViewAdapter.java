@@ -13,23 +13,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private List<String> mData;
     private int vehicleType;
     private List<Integer> mPicture;
+    private List<String> mPrice;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
-    public MyRecyclerViewAdapter(Context context, int vehicleType, List<String> data, List<Integer> mPic) {
+    public MyRecyclerViewAdapter(Context context, int vehicleType, List<String> data, List<Integer> mPic, List<String> prices) {
         this.mInflater = LayoutInflater.from(context);
         this.vehicleType = vehicleType;
         this.mData = data;
         this.mPicture = mPic;
+        this.mPrice = prices;
     }
 
 
@@ -44,14 +44,15 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public void onBindViewHolder(@NonNull MyRecyclerViewAdapter.ViewHolder holder, int position) {
         String vehicle = mData.get(position);
-        //holder.myImageView.setImageResource(mPicture.get(position));
+        String vPrice = mPrice.get(position);
         Glide.with(mInflater.getContext())
                 .load(mPicture.get(position))
                 .fitCenter()
                 .apply(new RequestOptions().override(600, 200))
                 .into(holder.myImageView);
 
-        holder.myTextView.setText(vehicle);
+        holder.vehicleNameTV.setText(vehicle);
+        holder.vehiclePriceTV.setText(vPrice);
     }
 
 
@@ -63,12 +64,14 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView myTextView;
+        TextView vehicleNameTV;
+        TextView vehiclePriceTV;
         ImageView myImageView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             myImageView  = itemView.findViewById(R.id.imageView);
-            myTextView = itemView.findViewById(R.id.textView);
+            vehicleNameTV = itemView.findViewById(R.id.RCvehicleName);
+            vehiclePriceTV = itemView.findViewById(R.id.RCVehiclePrice);
             itemView.setOnClickListener(this);
         }
 
