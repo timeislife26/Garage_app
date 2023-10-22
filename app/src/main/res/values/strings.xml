@@ -66,6 +66,13 @@
         <item>Bike4Q</item>
         <item>Bike5Q</item>
     </string-array>
+    <string-array name="bikeImages">
+        <item>bike1</item>
+        <item>bike2</item>
+        <item>bike3</item>
+        <item>bike4</item>
+        <item>bike5</item>
+    </string-array>
 
 
     <string-array name="other">
@@ -95,6 +102,13 @@
         <item>Other3Q</item>
         <item>Other4Q</item>
         <item>Other5Q</item>
+    </string-array>
+    <string-array name="otherImages">
+        <item>other1</item>
+        <item>other2</item>
+        <item>other3</item>
+        <item>other4</item>
+        <item>other5</item>
     </string-array>
 
 

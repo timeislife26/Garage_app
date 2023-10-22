@@ -56,7 +56,6 @@ public class MainActivity3 extends AppCompatActivity {
 
         if (extras != null) {
             vehiclePic = extras.getInt("vehiclePic");
-            //vehicleImage.setImageResource(extras.getInt("vehiclePic"));
             Glide.with(this)
                     .load(vehiclePic)
                     .fitCenter()
@@ -65,7 +64,6 @@ public class MainActivity3 extends AppCompatActivity {
 
 
 
-            //vehicleName = extras.getString("position");
             int position = (int)extras.get("position");
             vehicleType = extras.getInt("vehicleType");
             String quote = "";
@@ -95,13 +93,6 @@ public class MainActivity3 extends AppCompatActivity {
                     break;
             }
 
-            /*This works but I am trying to reduce the amount
-            TextView vehicleName = findViewById(R.id.vehicleName);
-            vehicleName.setText(extras.getString("position"));
-            ImageView vehicleImage = findViewById(R.id.vehicleImage);
-            vehicleImage.setImageResource(extras.getInt("vehiclePic"));
-            TextView vehiclePrice = findViewById(R.id.vehiclePrice);
-            */
             String finalQuote = quote;
             emailFAB.setOnClickListener(new View.OnClickListener() {
                 @Override

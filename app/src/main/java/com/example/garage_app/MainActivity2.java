@@ -44,19 +44,7 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         if (vehicleType == 1) {
             vehicleList = getResources().getStringArray(R.array.cars);
             vehicleNames.addAll(Arrays.asList(vehicleList));
-            /*
-            vehicleNames.add("Car 1");
-            vehicleNames.add("Car 2");
-            vehicleNames.add("Car 3");
-            vehicleNames.add("Car 4");
-            vehicleNames.add("Car 5");
 
-            vehiclePic.add(R.drawable.car1);
-            vehiclePic.add(R.drawable.car2);
-            vehiclePic.add(R.drawable.car3);
-            vehiclePic.add(R.drawable.car4);
-            vehiclePic.add(R.drawable.car5);
-             */
             for (int i = 0; i < vehicleNames.size();i++){
                 String imageName = getResources().getStringArray(R.array.carImages)[i];
                 int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
@@ -67,20 +55,20 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         else if (vehicleType == 2){
             vehicleList = getResources().getStringArray(R.array.bikes);
             vehicleNames.addAll(Arrays.asList(vehicleList));
-            vehiclePic.add(R.drawable.bike1);
-            vehiclePic.add(R.drawable.bike2);
-            vehiclePic.add(R.drawable.bike3);
-            vehiclePic.add(R.drawable.bike4);
-            vehiclePic.add(R.drawable.bike5);
+            for (int i = 0; i < vehicleNames.size();i++){
+                String imageName = getResources().getStringArray(R.array.bikeImages)[i];
+                int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
+                vehiclePic.add(resourceId);
+            }
         }
         else {
             vehicleList = getResources().getStringArray(R.array.other);
             vehicleNames.addAll(Arrays.asList(vehicleList));
-            vehiclePic.add(R.drawable.other1);
-            vehiclePic.add(R.drawable.other2);
-            vehiclePic.add(R.drawable.other3);
-            vehiclePic.add(R.drawable.other4);
-            vehiclePic.add(R.drawable.other5);
+            for (int i = 0; i < vehicleNames.size();i++){
+                String imageName = getResources().getStringArray(R.array.otherImages)[i];
+                int resourceId = res.getIdentifier(imageName, "drawable", getPackageName());
+                vehiclePic.add(resourceId);
+            }
         }
         RecyclerView recyclerView = findViewById(R.id.rcView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -94,10 +82,8 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
     public void onItemClick(View view, int position) {
         Intent send = new Intent(MainActivity2.this, MainActivity3.class);
         send.putExtra("vehiclePic", myRecyclerViewAdapter.getPicture(position));
-        //send.putExtra("position", myRecyclerViewAdapter.getItem(position));
         send.putExtra("position", (int)position);
         send.putExtra("vehicleType", myRecyclerViewAdapter.getVehicleType());
         startActivity(send);
-        //Toast.makeText(this, "You clicked " + myRecyclerViewAdapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
 }
