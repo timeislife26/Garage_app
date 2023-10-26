@@ -6,90 +6,108 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
         android:id="@+id/Welcome_message"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="81dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="70dp"
         android:rotationX="0"
         android:text="Welcome to the Garage App"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/Choose_vehicle_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/Choose_vehicle_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:text="Choose an option:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Welcome_message" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#e6e6e6"
+        app:strokeWidth="5dp">
 
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="58dp"
-        app:layout_constraintBottom_toTopOf="@+id/submitBtn"
-        app:layout_constraintStart_toStartOf="@+id/Choose_vehicle_text"
-        app:layout_constraintTop_toBottomOf="@+id/Choose_vehicle_text">
-
-        <RadioButton
-            android:id="@+id/carRB"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:text="Car"
+        <TextView
+            android:id="@+id/Choose_vehicle_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="26dp"
+            android:layout_marginStart="25dp"
+            android:text="Choose an option:"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Choose_vehicle_text" />
+            app:layout_constraintTop_toBottomOf="@+id/Welcome_message" />
 
-        <RadioButton
-            android:id="@+id/bikeRB"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:text="Bike"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/carRB" />
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="58dp"
+            app:layout_constraintBottom_toTopOf="@+id/submitBtn"
+            app:layout_constraintStart_toStartOf="@+id/Choose_vehicle_text"
+            app:layout_constraintTop_toBottomOf="@+id/Choose_vehicle_text">
 
-        <RadioButton
-            android:id="@+id/otherRB"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:text="Other"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.524"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bikeRB" />
+            <RadioButton
+                android:id="@+id/carRB"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="50dp"
+                android:text="Car"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.524"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Choose_vehicle_text" />
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/bikeRB"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="Bike"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.524"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/carRB" />
+
+            <RadioButton
+                android:id="@+id/otherRB"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:text="Other"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.524"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bikeRB" />
+
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/submitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="121dp"
+        android:layout_marginTop="20dp"
         android:text="submit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView6"
+        app:layout_constraintVertical_bias="0.348" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
