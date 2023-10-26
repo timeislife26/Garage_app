@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -19,18 +21,31 @@ import java.util.Arrays;
 public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
     MyRecyclerViewAdapter myRecyclerViewAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        FloatingActionButton homeBtn = findViewById(R.id.homeFAB);
+        //FloatingActionButton homeBtn = findViewById(R.id.homeFAB);
 
-        homeBtn.setOnClickListener(new View.OnClickListener() {
+        /*homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent home = new Intent(MainActivity2.this, MainActivity.class);
                 startActivity(home);
             }
+        });*/
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent navIntent = null;
+            if (item.getItemId() == R.id.navHome) {
+                navIntent = new Intent(MainActivity2.this, MainActivity.class);
+                startActivity(navIntent);
+            }
+            else
+                finish();
+            return true;
         });
 
         Bundle extras = getIntent().getExtras();
@@ -83,6 +98,7 @@ public class MainActivity2 extends AppCompatActivity implements MyRecyclerViewAd
         myRecyclerViewAdapter = new MyRecyclerViewAdapter(this, vehicleType, vehicleNames, vehiclePic, vehiclePrices);
         myRecyclerViewAdapter.setClickListener(this);
         recyclerView.setAdapter(myRecyclerViewAdapter);
+
 
     }
 

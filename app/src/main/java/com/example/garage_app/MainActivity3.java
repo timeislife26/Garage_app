@@ -2,6 +2,7 @@ package com.example.garage_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,9 +13,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.Arrays;
 
 public class MainActivity3 extends AppCompatActivity {
 
@@ -26,13 +26,24 @@ public class MainActivity3 extends AppCompatActivity {
         TextView vehicleName = findViewById(R.id.vehicleName);
         ImageView vehicleImage = findViewById(R.id.vehicleImage);
         TextView vehiclePrice = findViewById(R.id.vehiclePrice);
-        TextView vehicleDescription = findViewById(R.id.vehicleDescription);
-        FloatingActionButton homeFAB = findViewById(R.id.homeFAB);
+        TextView vehicleYear = findViewById(R.id.vehicleYear);
+        TextView vehicleQuote = findViewById(R.id.vehicleQuote);
+        FloatingActionButton browserFAB = findViewById(R.id.BrowserFAB);
         FloatingActionButton emailFAB = findViewById(R.id.emailFAB);
         FloatingActionButton phoneFAB = findViewById(R.id.phoneFAB);
         FloatingActionButton mapFAB = findViewById(R.id.mapFAB);
 
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            Intent navIntent = null;
+            if (item.getItemId() == R.id.navHome) {
+                navIntent = new Intent(MainActivity3.this, MainActivity.class);
+                startActivity(navIntent);
+            }
+            else
+                finish();
+            return true;
+        });
 
 
         //extra Types
@@ -40,19 +51,6 @@ public class MainActivity3 extends AppCompatActivity {
         int vehiclePic = 0;
         int vehicleType = 0;
         String[] vehicleList;
-
-
-        homeFAB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent home = new Intent(MainActivity3.this, MainActivity.class);
-                startActivity(home);
-            }
-        });
-
-
-
-
 
         if (extras != null) {
             vehiclePic = extras.getInt("vehiclePic");
@@ -67,31 +65,47 @@ public class MainActivity3 extends AppCompatActivity {
             int position = (int)extras.get("position");
             vehicleType = extras.getInt("vehicleType");
             String quote = "";
+            String website = "";
             switch (vehicleType){
                 case 0:
                     vehicleName.setText(getString(R.string.errorCase));
                     vehiclePrice.setText(getString(R.string.errorCase));
-                    vehicleDescription.setText(getString(R.string.errorCase));
+                    vehicleYear.setText(getString(R.string.errorCase));
                     break;
                 case 1:
-                    vehicleName.setText(getResources().getStringArray(R.array.cars)[position]);
-                    vehiclePrice.setText(getResources().getStringArray(R.array.carPrice)[position]);
-                    vehicleDescription.setText(getResources().getStringArray(R.array.carDescription)[position]);
+                    vehicleName.setText("Name: " + getResources().getStringArray(R.array.cars)[position]);
+                    vehiclePrice.setText("Price: " + getResources().getStringArray(R.array.carPrice)[position]);
+                    vehicleYear.setText("Year: " + getResources().getStringArray(R.array.carYear)[position]);
                     quote = getResources().getStringArray(R.array.carQuote)[position];
+                    vehicleQuote.setText("Quote: " + quote);
+                    website = getResources().getStringArray(R.array.carLink)[position];
                     break;
                 case 2:
-                    vehicleName.setText(getResources().getStringArray(R.array.bikes)[position]);
-                    vehiclePrice.setText(getResources().getStringArray(R.array.bikePrice)[position]);
-                    vehicleDescription.setText(getResources().getStringArray(R.array.bikeDescription)[position]);
+                    vehicleName.setText("Name: " + getResources().getStringArray(R.array.bikes)[position]);
+                    vehiclePrice.setText("Price: " + getResources().getStringArray(R.array.bikePrice)[position]);
+                    vehicleYear.setText("Year: " + getResources().getStringArray(R.array.bikeYear)[position]);
                     quote = getResources().getStringArray(R.array.bikeQuote)[position];
+                    vehicleQuote.setText("Quote: " + quote);
+                    website = getResources().getStringArray(R.array.bikeLink)[position];
+
                     break;
                 case 3:
-                    vehicleName.setText(getResources().getStringArray(R.array.other)[position]);
-                    vehiclePrice.setText(getResources().getStringArray(R.array.otherPrice)[position]);
-                    vehicleDescription.setText(getResources().getStringArray(R.array.otherDescription)[position]);
-                    quote = getResources().getStringArray(R.array.other)[position];
+                    vehicleName.setText("Name: " + getResources().getStringArray(R.array.other)[position]);
+                    vehiclePrice.setText("Price: " + getResources().getStringArray(R.array.otherPrice)[position]);
+                    vehicleYear.setText("Year: " + getResources().getStringArray(R.array.otherYear)[position]);
+                    quote = getResources().getStringArray(R.array.otherQuote)[position];
+                    vehicleQuote.setText("Quote: " + quote);
+                    website = getResources().getStringArray(R.array.otherLink)[position];
                     break;
             }
+
+            String finalWebsite = website;
+            browserFAB.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    open_Browser(view, finalWebsite);
+                }
+            });
 
             String finalQuote = quote;
             emailFAB.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +126,15 @@ public class MainActivity3 extends AppCompatActivity {
                     open_map(view);
                 }
             });
+
+        }
+    }
+    public void open_Browser(View view, String website){
+        Uri uri = Uri.parse(website);
+        Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e){
 
         }
     }

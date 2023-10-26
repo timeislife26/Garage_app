@@ -45,9 +45,9 @@
             android:id="@+id/RCVehiclePrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="325dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="0dp"
-            android:layout_marginStart="350dp"
             android:text="TextView" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
